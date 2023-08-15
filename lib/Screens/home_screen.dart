@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:confetti/confetti.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:audioplayers/audioplayers.dart';
+import 'package:happy_birthday/Screens/message_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -80,6 +81,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
+        heroTag: "btn1",
         onPressed: (){
           _startAnimation();
         },
@@ -157,6 +159,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               style: TextStyle(
                                 color: Color(0xff13195b),
                                 fontWeight: FontWeight.w900,
+                                fontFamily: 'Satisfy',
                                 fontSize: 30,
                               ),
                               maxLines: 1,
@@ -191,10 +194,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 Padding(
                   padding: const EdgeInsets.all(20.0),
                   child: FloatingActionButton(
+                    heroTag: "btn2",
                     onPressed: (){
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const MessageScreen()),
+                        MaterialPageRoute(builder: (context) =>  const MessageScreen()),
                       );
                     },
                     backgroundColor: const Color(0xFF13195b),
@@ -210,40 +214,4 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
-
-
-class MessageScreen extends StatelessWidget {
-  const MessageScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Padding(
-        padding: EdgeInsets.only(
-            left: 16.0, right: 16.0, top: 36.0, bottom: 36),
-        child: Card(
-          elevation: 10,
-          shadowColor: Colors.lightBlue,
-          child: Padding(
-            padding: EdgeInsets.only(left: 16),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text(
-                  "I hope Ur Birthday is as sweet as the cake. And the year . And the year to follow is filled with as much joy as you bring ur friends",
-                  style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: 'OleoScript'
-
-                  ),)
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
 
